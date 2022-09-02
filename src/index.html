@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Titulo</title>
+  <link href="./assets/fontawesome/css/all.css" rel="stylesheet">
+  <link href="output.css" rel="stylesheet">
+</head>
+
+<body class="bg-cover   bg-[url('./imgs/pattern.png')] bg-white select-none">
+
+  <div id="containerPrincipal" class="mt-8  sm:mt-0 duration-700 flex flex-col justify-center items-center h-screen">
+    <h1 id="nameOutput"
+      class=" mx-auto select-text  text-white  font-medium italic text-[44px] outline-4 border-black text-center">
+      </h1><br>
+    <div id="photo" class="mx-auto mb-16">
+
+      <img src="./imgs/profile.jpg"
+        class=" shadow-2xl hover:rounded-[40px] hover:scale-150 hover:mb-32 rounded-3xl border-4 duration-300 border-white hover:border-violet-600 w-72 h-72">
+
+    </div>
+
+    <div class="">
+      <ul id="ulLinks" class="flex flex-col">
+
+      </ul>
+
+    </div>
+  </div>
+  <footer>
+    <img src="./imgs/animation.svg" class=" hidden  bottom-0 left-0 -mb-20 w-96 ">
+  </footer>
+</body>
+
+<script>
+
+  let info = {
+
+    name: "@markyn.dev",
+    description: "",
+    avatar_img: "",
+    style: {
+      color: "violet"
+    },
+    links: [
+
+      {
+        name: `<i class="fa-brands fa-github"></i> Github`,
+        url: "https://github.com/mavinsi"
+      },
+      {
+        name: `<i class="fa-solid fa-laptop-code"></i> Portifolio`,
+        url: "https://mvrodrigues.vercel.app/"
+      },
+      {
+        name: `<i class="fa-brands fa-instagram"></i> Instagram`,
+        url: "https://www.instagram.com/markyn.dev/"
+      }
+
+    ]
+  }
+
+  function changeText(){
+    const nameOutput = document.getElementById("nameOutput")
+    nameOutput.innerHTML = info.name
+  }
+
+  function listLink() {
+    let color = info.style.color
+    let list = document.getElementById("ulLinks")
+    var rotates = ['hover:rotate-2', 'hover:-rotate-2',];
+    info.links.forEach(i => {
+      var link = document.createElement('a');
+      link.setAttribute('href', i.url)
+      console.log(i.url)
+      link.innerHTML = i.name
+      var rotatesRandom = rotates[Math.floor(Math.random() * rotates.length)];
+      link.classList.add(rotatesRandom, "hover:border-4", "hover:scale-110", "rounded-2xl", "shadow-2xl", "duration-300", `bg-white`, "text-violet-600", "p-4", "w-72", "text-center", "text-2xl", "mb-4", "font-bold", "hover:bg-violet-500", `hover:text-white`)
+      list.appendChild(link);
+
+    })
+  }
+  window.addEventListener('load', function () {
+    changeText()
+    listLink()
+  })
+</script>
+
+</html>
